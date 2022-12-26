@@ -155,6 +155,8 @@ export const SingleOrbContainer = (props) => {
       handleOnAnimaitonEnd={ handleOnAnimaitonEnd }
       handleDescriptionOnAnimaitonEnd={ handleDescriptionOnAnimaitonEnd }
       handleCloseButtonOnclick={ handleCloseButtonOnclick }
+      handleOnMouseOver={ props.handleOnMouseOver }
+      handleOnMouseOut={ props.handleOnMouseOut }
     />
   );
 };

@@ -67,14 +67,25 @@ export const OrbsContainer = (props) => {
     }
   };
 
+  // Prevent from mouse scroll when cursor is above obr's description.
+  const [mouseOverDescription, setMouseOverDescription] = useState(false);
+
+  const handleOnMouseOver = () => {
+    setMouseOverDescription(true);
+  };
+
+  const handleOnMouseOut = () => {
+    setMouseOverDescription(false);
+  };
+
   // Handle next or previous orb when using mouse scroll.
   const handleOnWheel = (e) => {
-    if (e.deltaY >= 0) {
+    if (e.deltaY >= 0 && !mouseOverDescription) {
       if (((orbsLength - 1) > props.currentIndex) && !props.isAnimationRunning) {
         props.increaseUpcomingIndex();
         props.toggleIsAnimationRunning();
       }
-    } else {
+    } else if (!mouseOverDescription) {
       if ((0 < props.currentIndex) && !props.isAnimationRunning) {
         props.decreaseUpcomingIndex();
         props.toggleIsAnimationRunning();
@@ -140,6 +151,8 @@ export const OrbsContainer = (props) => {
       handleOnTouchStart={ handleOnTouchStart }
       handleOnTouchMove={ handleOnTouchMove }
       handleOnTouchEnd={ handleOnTouchEnd }
+      handleOnMouseOver={ handleOnMouseOver }
+      handleOnMouseOut={ handleOnMouseOut }
     />
   );
 };

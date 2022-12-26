@@ -6,8 +6,10 @@ export const SingleOrb = forwardRef((props, ref) => {
     <section className='single-orb-container'>
       <h2 className="orb-header">{ props.orbName }</h2>
       <div 
-        className={`orb-description-container ${props.orbDescriptionClass}`}
-        onAnimationEnd={() => props.handleDescriptionOnAnimaitonEnd()}
+        className={ `orb-description-container ${props.orbDescriptionClass}` }
+        onAnimationEnd= {() => props.handleDescriptionOnAnimaitonEnd() }
+        onMouseOver={ () => props.handleOnMouseOver() }
+        onMouseOut={ () => props.handleOnMouseOut() }
       >
         <button 
           className="orb-description-button"
@@ -44,5 +46,7 @@ SingleOrb.propTypes = {
   isOrbZoomed: PropTypes.bool,
   orbImageStyleZoomed: PropTypes.object,
   orbImageStyle: PropTypes.object,
-  orbImageSrc: PropTypes.string
+  orbImageSrc: PropTypes.string,
+  handleOnMouseOver: PropTypes.bool,
+  handleOnMouseOut: PropTypes.bool
 };

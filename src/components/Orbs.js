@@ -25,6 +25,8 @@ export const Orbs = forwardRef((props, ref) => {
             orbDescription={ obj.description }
             orbImageSrc={ obj.path }
             isAnimationRunning={ props.isAnimationRunning }
+            handleOnMouseOver={ props.handleOnMouseOver }
+            handleOnMouseOut={ props.handleOnMouseOut }
           />
           );
         })}
